@@ -10,53 +10,65 @@ import { motion } from "framer-motion";
 export default function SocialContact() {
   const cards = [
     {
-      title: "WhatsApp Direto",
-      description: "Atendimento imediato para tirar dúvidas, alinhar requisitos de projeto ou solicitar uma estimativa comercial.",
-      cta: "CONVERSAR NO WHATSAPP",
+      title: "WhatsApp",
+      desktopTitle: "WhatsApp Direto",
+      description: "Atendimento imediato para tirar dúvidas ou estimativa comercial.",
+      desktopDescription: "Atendimento imediato para tirar dúvidas, alinhar requisitos de projeto ou solicitar uma estimativa comercial.",
+      cta: "WHATSAPP",
+      desktopCta: "CONVERSAR NO WHATSAPP",
       url: getWhatsAppLink("general"),
-      icon: <MessageCircle className="w-5 h-5" />,
+      icon: <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />,
       theme: "dark",
       isInternal: false,
     },
     {
       title: "Instagram",
-      description: "Conteúdos, opiniões, estudos e bastidores sobre estratégia, design, tecnologia e negócios.",
-      cta: "ACOMPANHAR NO INSTAGRAM",
+      desktopTitle: "Instagram",
+      description: "Conteúdos, bastidores e estudos sobre design e negócios.",
+      desktopDescription: "Conteúdos, opiniões, estudos e bastidores sobre estratégia, design, tecnologia e negócios.",
+      cta: "INSTAGRAM",
+      desktopCta: "ACOMPANHAR NO INSTAGRAM",
       url: CONFIG.socials.instagram,
-      icon: <Instagram className="w-5 h-5" />,
+      icon: <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />,
       theme: "light",
       isInternal: false,
     },
     {
       title: "LinkedIn",
-      description: "Reflexões sobre negócios, tecnologia, processos, experiência e desenvolvimento profissional.",
-      cta: "CONECTAR NO LINKEDIN",
+      desktopTitle: "LinkedIn",
+      description: "Reflexões sobre estratégia, processos e tecnologia.",
+      desktopDescription: "Reflexões sobre negócios, tecnologia, processos, experiência e desenvolvimento profissional.",
+      cta: "LINKEDIN",
+      desktopCta: "CONECTAR NO LINKEDIN",
       url: CONFIG.socials.linkedin,
-      icon: <Linkedin className="w-5 h-5" />,
+      icon: <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />,
       theme: "light",
       isInternal: false,
     },
     {
-      title: "Diagnóstico com IA",
-      description: "Pode estar na presença digital, na experiência do cliente, em um processo interno ou em uma ideia que precisa ganhar forma.",
-      cta: "INICIAR DIAGNÓSTICO",
+      title: "Diagnóstico IA",
+      desktopTitle: "Diagnóstico com IA",
+      description: "Descubra oportunidades digitais para seu negócio.",
+      desktopDescription: "Pode estar na presença digital, na experiência do cliente, em um processo interno ou em uma ideia que precisa ganhar forma.",
+      cta: "INICIAR IA",
+      desktopCta: "INICIAR DIAGNÓSTICO",
       url: "/diagnostico",
-      icon: <Bot className="w-5 h-5" />,
+      icon: <Bot className="w-4 h-4 sm:w-5 sm:h-5" />,
       theme: "accent",
       isInternal: true,
     },
   ];
 
   return (
-    <section id="contato" className="relative w-full bg-bg-light text-text-dark py-24 lg:py-36 overflow-hidden tech-grid">
-      <div className="mx-auto max-w-[1440px] px-5 md:px-7 lg:px-10">
+    <section id="contato" className="relative w-full bg-bg-light text-text-dark py-14 sm:py-24 lg:py-36 overflow-hidden tech-grid">
+      <div className="mx-auto max-w-[1440px] px-3.5 sm:px-6 lg:px-10">
         
         {/* Header Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 mb-20 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 mb-10 sm:mb-16 lg:mb-20 items-end">
           <div className="lg:col-span-8">
             <SectionEyebrow number="07" label="CANAIS & CONTEÚDO" theme="light" />
-            <h2 className="font-section-title text-text-dark mb-6 leading-tight">
-              Ideias, estudos e contato direto <br />
+            <h2 className="text-2xl sm:text-4xl lg:text-[48px] font-medium tracking-tight text-text-dark mb-4 sm:mb-6 leading-[1.12]">
+              Ideias, estudos e contato direto <br className="hidden sm:inline" />
               para o seu{" "}
               <AnimatedHighlight variant="box">
                 próximo projeto.
@@ -64,14 +76,14 @@ export default function SocialContact() {
             </h2>
           </div>
           <div className="lg:col-span-4 flex lg:justify-end">
-            <p className="font-body text-muted-light max-w-sm mb-2 leading-relaxed">
+            <p className="font-body text-muted-light text-sm sm:text-base max-w-sm mb-2 leading-relaxed">
               Fale pelo WhatsApp oficial, acompanhe os bastidores de desenvolvimento ou consulte nosso assistente de IA.
             </p>
           </div>
         </div>
 
-        {/* Social Cards Grid - 2x2 on mobile, 4 columns on desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
+        {/* Social Cards Grid - Exactly 2x2 on mobile (2 columns, 2 rows), 4 columns on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5 lg:gap-8">
           {cards.map((card, idx) => {
             const isAccent = card.theme === "accent";
             const isDark = card.theme === "dark";
@@ -87,34 +99,44 @@ export default function SocialContact() {
               : "bg-[#F4F4F5] text-text-dark border border-border-light";
             const descColor = isAccent ? "text-text-dark/80 font-medium" : isDark ? "text-white/70" : "text-muted-light";
             const ctaClass = isAccent
-              ? "inline-flex items-center gap-1.5 px-3 py-2 sm:px-5 sm:h-11 rounded-[10px] sm:rounded-[14px] bg-text-dark text-text-light text-[11px] sm:text-[13px] font-medium shadow-dark-btn hover:bg-black transition-all duration-200"
+              ? "inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-5 sm:h-11 rounded-[8px] sm:rounded-[14px] bg-text-dark text-text-light text-[10px] sm:text-[13px] font-semibold shadow-dark-btn hover:bg-black transition-all duration-200"
               : isDark
-              ? "inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-medium text-accent group-hover:text-white transition-colors duration-200"
-              : "inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-medium text-text-dark group-hover:text-muted-light transition-colors duration-200";
+              ? "inline-flex items-center gap-1 text-[10px] sm:text-[13px] font-semibold text-accent group-hover:text-white transition-colors duration-200"
+              : "inline-flex items-center gap-1 text-[10px] sm:text-[13px] font-semibold text-text-dark group-hover:text-muted-light transition-colors duration-200";
 
             const cardContent = (
               <>
                 {/* Top header */}
                 <div>
-                  <div className="flex items-center justify-between mb-3 sm:mb-5">
-                    <div className={`w-8 h-8 sm:w-11 sm:h-11 rounded-[10px] sm:rounded-[14px] flex items-center justify-center shrink-0 ${iconBg}`}>
+                  <div className="flex items-center justify-between mb-2.5 sm:mb-5">
+                    <div className={`w-7 h-7 sm:w-11 sm:h-11 rounded-[8px] sm:rounded-[14px] flex items-center justify-center shrink-0 ${iconBg}`}>
                       {card.icon}
                     </div>
                     {!isAccent && <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-light group-hover:text-text-dark transition-colors duration-200" />}
                   </div>
                   
-                  <h3 className="font-semibold text-[15px] sm:text-[19px] md:text-[21px] mb-1 sm:mb-2 leading-tight">
+                  {/* Title (Mobile vs Desktop) */}
+                  <h3 className="sm:hidden font-semibold text-[13px] text-inherit leading-tight mb-1">
                     {card.title}
                   </h3>
-                  <p className={`text-[11px] sm:text-[14px] leading-[1.4] sm:leading-[1.5] line-clamp-3 sm:line-clamp-none ${descColor}`}>
+                  <h3 className="hidden sm:block font-semibold text-[18px] lg:text-[21px] mb-2 leading-snug">
+                    {card.desktopTitle}
+                  </h3>
+
+                  {/* Description (Mobile vs Desktop) */}
+                  <p className={`sm:hidden text-[10px] leading-[1.3] line-clamp-2 ${descColor}`}>
                     {card.description}
+                  </p>
+                  <p className={`hidden sm:block text-[14px] leading-[1.5] ${descColor}`}>
+                    {card.desktopDescription}
                   </p>
                 </div>
 
-                {/* Bottom CTA */}
-                <div className="mt-4 sm:mt-6">
+                {/* Bottom CTA (Mobile vs Desktop) */}
+                <div className="mt-3 sm:mt-6">
                   <span className={ctaClass}>
-                    <span className="truncate">{card.cta}</span>
+                    <span className="sm:hidden">{card.cta}</span>
+                    <span className="hidden sm:inline">{card.desktopCta}</span>
                     <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
                   </span>
                 </div>
@@ -127,12 +149,12 @@ export default function SocialContact() {
                   key={card.title}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: idx * 0.06 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.35, delay: idx * 0.05 }}
                 >
                   <Link
                     href={card.url}
-                    className={`group border rounded-[22px] sm:rounded-[32px] lg:rounded-[36px] p-4 sm:p-7 lg:p-8 flex flex-col justify-between min-h-[220px] sm:min-h-[280px] lg:min-h-[320px] transition-all duration-200 h-full ${bgClass}`}
+                    className={`group border rounded-[18px] sm:rounded-[30px] lg:rounded-[36px] p-3 sm:p-6 lg:p-8 flex flex-col justify-between min-h-[165px] sm:min-h-[260px] lg:min-h-[310px] transition-all duration-200 h-full ${bgClass}`}
                   >
                     {cardContent}
                   </Link>
@@ -148,9 +170,9 @@ export default function SocialContact() {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className={`group border rounded-[22px] sm:rounded-[32px] lg:rounded-[36px] p-4 sm:p-7 lg:p-8 flex flex-col justify-between min-h-[220px] sm:min-h-[280px] lg:min-h-[320px] transition-all duration-200 h-full ${bgClass}`}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.35, delay: idx * 0.05 }}
+                className={`group border rounded-[18px] sm:rounded-[30px] lg:rounded-[36px] p-3 sm:p-6 lg:p-8 flex flex-col justify-between min-h-[165px] sm:min-h-[260px] lg:min-h-[310px] transition-all duration-200 h-full ${bgClass}`}
               >
                 {cardContent}
               </motion.a>
