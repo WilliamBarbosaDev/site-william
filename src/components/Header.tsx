@@ -65,10 +65,10 @@ export default function Header() {
             aria-label="William Barbosa — Voltar para o início"
           >
             <Image
-              src="/assets/MINHA ID/LOGOS SEM FUNDO/Group 57.png"
+              src="/assets/logo_menu.png"
               alt="William Barbosa — Designer e Web Designer"
               width={220}
-              height={55}
+              height={66}
               priority
               className="h-8 md:h-10 w-auto object-contain"
             />
