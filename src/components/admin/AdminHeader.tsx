@@ -2,9 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Sparkles, ArrowUpRight, Bell, Shield } from "lucide-react";
+import { Sparkles, ArrowUpRight, Bell, Shield, Menu } from "lucide-react";
 
-export function AdminHeader() {
+interface AdminHeaderProps {
+  onToggleSidebar?: () => void;
+}
+
+export function AdminHeader({ onToggleSidebar }: AdminHeaderProps) {
   const pathname = usePathname();
 
   const getPageTitle = (path: string) => {
@@ -30,9 +34,18 @@ export function AdminHeader() {
   };
 
   return (
-    <header className="h-16 border-b border-white/10 bg-[#0a0a0b]/80 backdrop-blur-md px-6 flex items-center justify-between sticky top-0 z-20">
+    <header className="h-16 border-b border-white/10 bg-[#0a0a0b]/80 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between sticky top-0 z-20">
       <div className="flex items-center gap-3">
-        <h1 className="text-base font-medium text-white tracking-tight">
+        {onToggleSidebar && (
+          <button
+            onClick={onToggleSidebar}
+            className="lg:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
+            aria-label="Abrir menu do painel"
+          >
+            <Menu className="w-4 h-4 text-[#22c55e]" />
+          </button>
+        )}
+        <h1 className="text-sm sm:text-base font-medium text-white tracking-tight truncate max-w-[200px] sm:max-w-none">
           {getPageTitle(pathname)}
         </h1>
       </div>

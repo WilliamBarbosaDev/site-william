@@ -18,14 +18,17 @@ import {
   ExternalLink,
   ChevronRight,
   Sparkles,
-  Bot
+  Bot,
+  X
 } from "lucide-react";
 
 interface AdminSidebarProps {
   user: { name: string; email: string };
+  onClose?: () => void;
+  isMobile?: boolean;
 }
 
-export function AdminSidebar({ user }: AdminSidebarProps) {
+export function AdminSidebar({ user, onClose, isMobile }: AdminSidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -80,10 +83,10 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
   ];
 
   return (
-    <aside className="w-64 bg-[#0a0a0b] border-r border-white/10 flex flex-col justify-between h-screen sticky top-0 text-[#a3a3a3] select-none z-30">
+    <aside className={`w-64 bg-[#0a0a0b] border-r border-white/10 flex flex-col justify-between h-screen sticky top-0 text-[#a3a3a3] select-none z-30 ${isMobile ? 'w-full h-full' : ''}`}>
       {/* Brand Header */}
-      <div className="p-5 border-b border-white/10">
-        <Link href="/admin" className="flex items-center gap-3">
+      <div className="p-5 border-b border-white/10 flex items-center justify-between">
+        <Link href="/admin" onClick={onClose} className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#22c55e] to-emerald-400 flex items-center justify-center text-black font-bold text-sm shadow-md">
             WB
           </div>
@@ -95,6 +98,15 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
             </div>
           </div>
         </Link>
+        {isMobile && (
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-lg bg-white/5 text-[#888] hover:text-white hover:bg-white/10 transition"
+            aria-label="Fechar menu"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
       </div>
 
       {/* Navigation Links */}
@@ -107,6 +119,7 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
             <div key={item.label} className="space-y-1">
               <Link
                 href={item.href}
+                onClick={onClose}
                 className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all duration-200 ${
                   isActive
                     ? "bg-white/10 text-white font-semibold shadow-sm"
@@ -131,6 +144,7 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
                       <Link
                         key={sub.href}
                         href={sub.href}
+                        onClick={onClose}
                         className={`block px-2.5 py-1.5 rounded-lg text-[11px] transition-colors ${
                           isSubActive
                             ? "text-[#22c55e] font-medium bg-[#22c55e]/10"

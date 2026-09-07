@@ -70,8 +70,8 @@ export default function SocialContact() {
           </div>
         </div>
 
-        {/* Social Cards Grid (36px radius, hairline border) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {/* Social Cards Grid - 2x2 on mobile, 4 columns on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
           {cards.map((card, idx) => {
             const isAccent = card.theme === "accent";
             const isDark = card.theme === "dark";
@@ -87,35 +87,35 @@ export default function SocialContact() {
               : "bg-[#F4F4F5] text-text-dark border border-border-light";
             const descColor = isAccent ? "text-text-dark/80 font-medium" : isDark ? "text-white/70" : "text-muted-light";
             const ctaClass = isAccent
-              ? "inline-flex items-center gap-2 px-5 h-11 rounded-[14px] bg-text-dark text-text-light text-[13px] font-medium shadow-dark-btn hover:bg-black transition-all duration-200"
+              ? "inline-flex items-center gap-1.5 px-3 py-2 sm:px-5 sm:h-11 rounded-[10px] sm:rounded-[14px] bg-text-dark text-text-light text-[11px] sm:text-[13px] font-medium shadow-dark-btn hover:bg-black transition-all duration-200"
               : isDark
-              ? "inline-flex items-center gap-1.5 text-[13px] font-medium text-accent group-hover:text-white transition-colors duration-200"
-              : "inline-flex items-center gap-1.5 text-[13px] font-medium text-text-dark group-hover:text-muted-light transition-colors duration-200";
+              ? "inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-medium text-accent group-hover:text-white transition-colors duration-200"
+              : "inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-medium text-text-dark group-hover:text-muted-light transition-colors duration-200";
 
             const cardContent = (
               <>
                 {/* Top header */}
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className={`w-11 h-11 rounded-[14px] flex items-center justify-center ${iconBg}`}>
+                  <div className="flex items-center justify-between mb-3 sm:mb-5">
+                    <div className={`w-8 h-8 sm:w-11 sm:h-11 rounded-[10px] sm:rounded-[14px] flex items-center justify-center shrink-0 ${iconBg}`}>
                       {card.icon}
                     </div>
-                    {!isAccent && <ArrowUpRight className="w-4 h-4 text-muted-light group-hover:text-text-dark transition-colors duration-200" />}
+                    {!isAccent && <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-light group-hover:text-text-dark transition-colors duration-200" />}
                   </div>
                   
-                  <h3 className="font-semibold text-[19px] md:text-[21px] mb-2 leading-snug">
+                  <h3 className="font-semibold text-[15px] sm:text-[19px] md:text-[21px] mb-1 sm:mb-2 leading-tight">
                     {card.title}
                   </h3>
-                  <p className={`text-[14px] leading-[1.5] ${descColor}`}>
+                  <p className={`text-[11px] sm:text-[14px] leading-[1.4] sm:leading-[1.5] line-clamp-3 sm:line-clamp-none ${descColor}`}>
                     {card.description}
                   </p>
                 </div>
 
                 {/* Bottom CTA */}
-                <div className="mt-6">
+                <div className="mt-4 sm:mt-6">
                   <span className={ctaClass}>
-                    <span>{card.cta}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <span className="truncate">{card.cta}</span>
+                    <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
                   </span>
                 </div>
               </>
@@ -132,7 +132,7 @@ export default function SocialContact() {
                 >
                   <Link
                     href={card.url}
-                    className={`group border rounded-[36px] p-7 lg:p-8 flex flex-col justify-between min-h-[320px] transition-all duration-200 ${bgClass}`}
+                    className={`group border rounded-[22px] sm:rounded-[32px] lg:rounded-[36px] p-4 sm:p-7 lg:p-8 flex flex-col justify-between min-h-[220px] sm:min-h-[280px] lg:min-h-[320px] transition-all duration-200 h-full ${bgClass}`}
                   >
                     {cardContent}
                   </Link>
@@ -150,7 +150,7 @@ export default function SocialContact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className={`group border rounded-[36px] p-7 lg:p-8 flex flex-col justify-between min-h-[320px] transition-all duration-200 ${bgClass}`}
+                className={`group border rounded-[22px] sm:rounded-[32px] lg:rounded-[36px] p-4 sm:p-7 lg:p-8 flex flex-col justify-between min-h-[220px] sm:min-h-[280px] lg:min-h-[320px] transition-all duration-200 h-full ${bgClass}`}
               >
                 {cardContent}
               </motion.a>

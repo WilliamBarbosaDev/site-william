@@ -9,7 +9,7 @@ interface MarqueeProps {
 
 export default function Marquee({
   items,
-  duration = "28s",
+  duration = "55s",
   pauseOnHover = true,
   theme = "dark"
 }: MarqueeProps) {

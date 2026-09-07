@@ -55,7 +55,7 @@ export default async function Home() {
         <Hero cmsContent={heroContent} />
 
         {/* 1st Faixa Marquee (Authority) */}
-        <Marquee items={authorityMarqueeItems} duration="26s" theme="dark" />
+        <Marquee items={authorityMarqueeItems} duration="55s" theme="dark" />
 
         {/* Highlighted Projects */}
         <Projects />
@@ -64,7 +64,7 @@ export default async function Home() {
         <Solutions />
 
         {/* 2nd Faixa Marquee (Services) */}
-        <Marquee items={servicesMarqueeItems} duration="24s" theme="dark" />
+        <Marquee items={servicesMarqueeItems} duration="50s" theme="dark" />
 
         {/* Dedicated AI & Internal Systems Grid Showcase */}
         <AiSystems />

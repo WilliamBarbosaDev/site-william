@@ -126,7 +126,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 top-[64px] z-40 lg:hidden bg-bg-light flex flex-col justify-between border-t border-border-light p-6 h-[calc(100vh-64px)] overflow-y-auto"
+            className="fixed inset-0 top-[64px] z-40 lg:hidden bg-bg-light flex flex-col justify-between border-t border-border-light p-6 h-[calc(100dvh-64px)] overflow-y-auto"
           >
             <nav className="flex flex-col gap-6 pt-8" aria-label="Menu móvel">
               {mobileNavLinks.map((link, idx) => (

@@ -40,7 +40,7 @@
   --shadow-hairline-card: 0 0 0 1px var(--color-border-light);
   --shadow-accent-glow: 0 0 28px rgba(200, 255, 54, 0.25);
 
-  --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee: marquee 55s linear infinite;
 
   @keyframes marquee {
     from {
@@ -62,13 +62,28 @@ html {
   scroll-behavior: smooth;
   background-color: var(--background);
   color: var(--foreground);
+  overscroll-behavior-x: none;
 }
 
 body {
   font-family: var(--font-sans);
   overflow-x: hidden;
+  width: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS Safari form auto-zoom prevention */
+@media screen and (max-width: 767px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
 }
 
 /* Typography polish: eliminate widows and balance lines */
@@ -83,17 +98,17 @@ p, li, span, a {
 /* Design System Typography utilities */
 .font-hero {
   font-family: "Inter Tight", var(--font-sans);
-  font-size: clamp(64px, 6.2vw, 108px);
-  line-height: 0.93;
-  letter-spacing: -0.055em;
+  font-size: clamp(36px, 6.2vw, 108px);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
   font-weight: 500;
 }
 
 .font-section-title {
   font-family: "Inter Tight", var(--font-sans);
-  font-size: clamp(44px, 4.8vw, 80px);
-  line-height: 0.98;
-  letter-spacing: -0.045em;
+  font-size: clamp(30px, 4.8vw, 80px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
   font-weight: 500;
 }
 

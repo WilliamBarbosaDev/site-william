@@ -18,25 +18,24 @@ export default function FAQ() {
     <section id="faq" className="relative w-full bg-bg-light text-text-dark py-24 lg:py-36 overflow-hidden tech-grid">
       <div className="mx-auto max-w-[1440px] px-5 md:px-7 lg:px-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* Left Column Title */}
-          <div className="lg:col-span-4 lg:sticky lg:top-28">
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
             <SectionEyebrow number="06" label="FAQ" theme="light" />
-            <h2 className="font-section-title text-text-dark mb-6 leading-tight max-w-sm">
-              Respostas diretas sobre como <br className="hidden sm:inline" />
-              o trabalho é{" "}
+            <h2 className="text-2xl sm:text-3xl lg:text-[36px] xl:text-[40px] font-semibold text-text-dark mb-4 tracking-[-0.03em] leading-[1.18] max-w-md">
+              Respostas diretas sobre como o trabalho é{" "}
               <AnimatedHighlight variant="box">
                 estruturado.
               </AnimatedHighlight>
             </h2>
-            <p className="font-body text-muted-light max-w-sm mb-4 leading-relaxed">
+            <p className="font-body text-muted-light max-w-sm text-[15px] sm:text-[16px] leading-relaxed">
               Perguntas fundamentais sobre método, diagnóstico, escopo e acompanhamento.
             </p>
           </div>
 
           {/* Right Column Accordions (Hairline bordered cards) */}
-          <div className="lg:col-span-8 flex flex-col gap-3.5">
+          <div className="lg:col-span-7 flex flex-col gap-3.5">
             {FAQ_ITEMS.map((item, idx) => {
               const isOpen = openIndex === idx;
               return (
