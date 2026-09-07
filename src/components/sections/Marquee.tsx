@@ -9,7 +9,7 @@ interface MarqueeProps {
 
 export default function Marquee({
   items,
-  duration = "55s",
+  duration = "120s",
   pauseOnHover = true,
   theme = "dark"
 }: MarqueeProps) {
@@ -30,8 +30,12 @@ export default function Marquee({
         }`}
       >
         <div
-          className="flex items-center shrink-0 animate-marquee"
-          style={{ animationDuration: duration }}
+          className="flex items-center shrink-0 animate-marquee will-change-transform"
+          style={{ 
+            animationDuration: duration,
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden"
+          }}
         >
           {marqueeItems.map((item, index) => (
             <div key={index} className="flex items-center mx-4 md:mx-6">

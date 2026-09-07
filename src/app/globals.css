@@ -40,7 +40,7 @@
   --shadow-hairline-card: 0 0 0 1px var(--color-border-light);
   --shadow-accent-glow: 0 0 28px rgba(200, 255, 54, 0.25);
 
-  --animate-marquee: marquee 55s linear infinite;
+  --animate-marquee: marquee 120s linear infinite;
 
   @keyframes marquee {
     from {
