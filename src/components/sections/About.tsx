@@ -63,7 +63,7 @@ export default function About() {
             >
               <div className="relative aspect-[3/4] w-full rounded-[26px] overflow-hidden bg-bg-dark">
                 <Image
-                  src="/assets/MINHA ID/william_studio.jpg"
+                  src="/assets/minhafoto02.jpeg"
                   alt="William Barbosa — Estratégia, Web & IA"
                   fill
                   className="object-cover hover:scale-[1.02] transition-transform duration-500 object-top"
