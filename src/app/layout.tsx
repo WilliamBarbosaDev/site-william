@@ -29,6 +29,14 @@ export const metadata: Metadata = {
       "Sites, landing pages, identidade visual, conteúdo e automações para empresas, profissionais e agências.",
     images: ["/assets/MINHA ID/Frame 12.png"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/apple-icon.png",
+  },
   robots: {
     index: true,
     follow: true,
