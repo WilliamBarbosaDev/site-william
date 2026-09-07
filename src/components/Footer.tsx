@@ -169,6 +169,15 @@ export default function Footer() {
                 Behance
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
               </a>
+              <a
+                href={getWhatsAppLink("general")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-small text-muted-dark hover:text-accent flex items-center gap-1.5 transition-colors duration-200"
+              >
+                WhatsApp Oficial
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+              </a>
             </div>
           </div>
 

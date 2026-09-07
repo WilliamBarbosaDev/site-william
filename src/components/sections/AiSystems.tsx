@@ -153,7 +153,7 @@ export default function AiSystems() {
           </div>
 
           <a
-            href="https://api.whatsapp.com/send?phone=5592999999999&text=Ol%C3%A1%20William!%20Gostaria%20de%20conversar%20sobre%20um%20sistema%20personalizado%20com%20IA%20para%20minha%20empresa."
+            href={`https://api.whatsapp.com/send?phone=${CONFIG.phone}&text=${encodeURIComponent("Olá William! Gostaria de conversar sobre um sistema personalizado com IA para minha empresa.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 px-6 h-12 rounded-[14px] bg-accent text-text-dark text-[14px] font-medium shadow-dark-btn hover:bg-accent-hover hover:scale-[1.01] active:scale-[0.98] transition-all duration-200"

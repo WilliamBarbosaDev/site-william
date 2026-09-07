@@ -12,9 +12,12 @@ export const CONFIG = {
   }
 };
 
-export const getWhatsAppLink = (messageType: keyof typeof WHATSAPP_MESSAGES) => {
+export const getWhatsAppLink = (messageOrType?: keyof typeof WHATSAPP_MESSAGES | string) => {
   const base = "https://api.whatsapp.com/send";
-  const text = encodeURIComponent(WHATSAPP_MESSAGES[messageType]);
+  const message = (messageOrType && (WHATSAPP_MESSAGES as Record<string, string>)[messageOrType]) 
+    || messageOrType 
+    || WHATSAPP_MESSAGES.general;
+  const text = encodeURIComponent(message);
   return `${base}?phone=${CONFIG.phone}&text=${text}`;
 };
 

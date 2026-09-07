@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { getWhatsAppLink } from "@/data";
 import SectionEyebrow from "../SectionEyebrow";
 import AnimatedHighlight from "../AnimatedHighlight";
 import { ArrowUpRight } from "lucide-react";
@@ -40,7 +41,9 @@ export default function About() {
 
             <div>
               <a
-                href="/#contato"
+                href={getWhatsAppLink("Olá William! Li sobre sua trajetória e gostaria de conversar sobre um projeto digital para minha empresa.")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-6 h-12 rounded-[14px] bg-text-dark text-text-light text-[14px] font-medium shadow-dark-btn border border-white/12 hover:bg-black hover:scale-[1.01] active:scale-[0.98] transition-all duration-200 focus-visible:outline-none"
               >
                 <span>Vamos conversar</span>

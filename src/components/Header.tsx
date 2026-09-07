@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { CONFIG } from "@/data";
+import { CONFIG, getWhatsAppLink } from "@/data";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -96,7 +96,9 @@ export default function Header() {
               {CONFIG.email}
             </a>
             <a
-              href="/#contato"
+              href={getWhatsAppLink("general")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 h-10 rounded-full bg-text-dark text-text-light text-[13px] font-medium tracking-wide shadow-dark-btn border border-white/10 hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus-visible:outline-none"
             >
               <span>Vamos conversar</span>
@@ -156,7 +158,9 @@ export default function Header() {
                 {CONFIG.email}
               </a>
               <a
-                href="#contato"
+                href={getWhatsAppLink("general")}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
                 className="w-full inline-flex items-center justify-center gap-2 h-12 rounded-pill bg-text-dark text-text-light font-label hover:bg-accent hover:text-text-dark transition-all duration-300"
               >

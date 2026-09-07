@@ -1,14 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { CONFIG } from "@/data";
+import { CONFIG, getWhatsAppLink } from "@/data";
 import SectionEyebrow from "../SectionEyebrow";
 import AnimatedHighlight from "../AnimatedHighlight";
-import { ArrowUpRight, Instagram, Linkedin, MessageSquare, Bot } from "lucide-react";
+import { ArrowUpRight, Instagram, Linkedin, MessageCircle, Bot } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function SocialContact() {
   const cards = [
+    {
+      title: "WhatsApp Direto",
+      description: "Atendimento imediato para tirar dúvidas, alinhar requisitos de projeto ou solicitar uma estimativa comercial.",
+      cta: "CONVERSAR NO WHATSAPP",
+      url: getWhatsAppLink("general"),
+      icon: <MessageCircle className="w-5 h-5" />,
+      theme: "dark",
+      isInternal: false,
+    },
     {
       title: "Instagram",
       description: "Conteúdos, opiniões, estudos e bastidores sobre estratégia, design, tecnologia e negócios.",
@@ -28,9 +37,9 @@ export default function SocialContact() {
       isInternal: false,
     },
     {
-      title: "Tem algo na sua empresa que poderia funcionar melhor?",
-      description: "Pode estar na presença digital, na experiência do cliente, em um processo interno ou em uma ideia que ainda precisa ganhar forma.",
-      cta: "VAMOS ENTENDER",
+      title: "Diagnóstico com IA",
+      description: "Pode estar na presença digital, na experiência do cliente, em um processo interno ou em uma ideia que precisa ganhar forma.",
+      cta: "INICIAR DIAGNÓSTICO",
       url: "/diagnostico",
       icon: <Bot className="w-5 h-5" />,
       theme: "accent",
@@ -39,40 +48,48 @@ export default function SocialContact() {
   ];
 
   return (
-    <section className="relative w-full bg-bg-light text-text-dark py-24 lg:py-36 overflow-hidden tech-grid">
+    <section id="contato" className="relative w-full bg-bg-light text-text-dark py-24 lg:py-36 overflow-hidden tech-grid">
       <div className="mx-auto max-w-[1440px] px-5 md:px-7 lg:px-10">
         
         {/* Header Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 mb-20 items-end">
           <div className="lg:col-span-8">
-            <SectionEyebrow number="07" label="CONTEÚDO" theme="light" />
+            <SectionEyebrow number="07" label="CANAIS & CONTEÚDO" theme="light" />
             <h2 className="font-section-title text-text-dark mb-6 leading-tight">
-              Ideias, estudos e bastidores sobre <br />
+              Ideias, estudos e contato direto <br />
+              para o seu{" "}
               <AnimatedHighlight variant="box">
-                negócios e tecnologia.
+                próximo projeto.
               </AnimatedHighlight>
             </h2>
           </div>
           <div className="lg:col-span-4 flex lg:justify-end">
             <p className="font-body text-muted-light max-w-sm mb-2 leading-relaxed">
-              Conteúdos sobre estratégia, UX, design, tecnologia, IA, processos e as decisões por trás de projetos digitais.
+              Fale pelo WhatsApp oficial, acompanhe os bastidores de desenvolvimento ou consulte nosso assistente de IA.
             </p>
           </div>
         </div>
 
         {/* Social Cards Grid (36px radius, hairline border) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {cards.map((card, idx) => {
             const isAccent = card.theme === "accent";
+            const isDark = card.theme === "dark";
             const bgClass = isAccent
               ? "bg-[#d4ff00] text-text-dark border border-black/10 hover:bg-[#c8ff00]"
+              : isDark
+              ? "bg-[#09090b] text-white border border-white/10 hover:border-accent/40 shadow-sm"
               : "bg-surface-light text-text-dark border border-border-light hover:border-black/20 hover:bg-[#FAFAFA]";
             const iconBg = isAccent 
               ? "bg-text-dark text-[#d4ff00]" 
+              : isDark
+              ? "bg-white/10 text-accent border border-white/10"
               : "bg-[#F4F4F5] text-text-dark border border-border-light";
-            const descColor = isAccent ? "text-text-dark/80 font-medium" : "text-muted-light";
+            const descColor = isAccent ? "text-text-dark/80 font-medium" : isDark ? "text-white/70" : "text-muted-light";
             const ctaClass = isAccent
               ? "inline-flex items-center gap-2 px-5 h-11 rounded-[14px] bg-text-dark text-text-light text-[13px] font-medium shadow-dark-btn hover:bg-black transition-all duration-200"
+              : isDark
+              ? "inline-flex items-center gap-1.5 text-[13px] font-medium text-accent group-hover:text-white transition-colors duration-200"
               : "inline-flex items-center gap-1.5 text-[13px] font-medium text-text-dark group-hover:text-muted-light transition-colors duration-200";
 
             const cardContent = (

@@ -67,7 +67,7 @@ export default function RootLayout({
         "@id": "https://williambdesigner.com.br/#service",
         "name": "William Barbosa — Portfolio & Serviços Digitais",
         "image": "https://williambdesigner.com.br/assets/MINHA ID/Frame 12.png",
-        "telephone": "+5592999999999",
+        "telephone": "+5592982824592",
         "email": "contato@williambdesigner.com.br",
         "url": "https://williambdesigner.com.br",
         "address": {
