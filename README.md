@@ -1,43 +1,43 @@
 # William Barbosa — Sites de Alta Conversão, Portfólio, Blog & Hub de Inteligência Artificial
+**Domínio Oficial**: [https://www.williambdesigner.com.br](https://www.williambdesigner.com.br)
 
-Plataforma completa de presença digital e conversão para **William Barbosa**, integrando Home institucional de alta performance, Blog Estratégico, Portfólio de 34 projetos reais, Agente Consultor com IA (`/diagnostico`) e um **Painel Administrativo Completo (`/admin`)** com CMS, CRM de Leads e Roteador Multi-Chaves de IA.
+Plataforma completa de presença digital, autoridade e conversão para **William Barbosa**, integrando Home institucional editorial de alta performance, Blog Estratégico com geração de conteúdo por IA, Portfólio de 34 cases reais, Agente Consultor Interativo (`/diagnostico`) e um **Painel Administrativo Completo (`/admin`)** com CMS, CRM de Leads, banco de dados Supabase e Roteador Multi-Chaves de IA.
 
 ---
 
 > [!NOTE]
-> ### ✅ SUPABASE 100% CONFIGURADO E ATIVO
-> O banco de dados de produção no **Supabase** está conectado e sincronizado com todas as tabelas e dados iniciais da plataforma.
-> Arquivo de credenciais configurado: [`.env.local`](./.env.local).
+> ### ✅ PRODUÇÃO NO AR & SUPABASE CONECTADO
+> * O site está em produção no domínio oficial: **[https://www.williambdesigner.com.br](https://www.williambdesigner.com.br)**
+> * Banco de dados de produção no **Supabase (PostgreSQL)** e banco local **SQLite** sincronizados.
+> * Painel Administrativo em **`/admin`** com login restrito.
 
 ---
 
-## ⚡ Como Iniciar Localmente
+## ⚡ Como Rodar Localmente
 
 ```bash
-# Instalar dependências
-npm install
+# 1. Instalar dependências
+npm install --legacy-peer-deps
 
-# Iniciar servidor de desenvolvimento
+# 2. Iniciar servidor de desenvolvimento
 npm run dev
 ```
 
 Acesse no navegador:
-- **Site Público**: [http://localhost:3000](http://localhost:3000)
-- **Blog**: [http://localhost:3000/blog](http://localhost:3000/blog)
-- **Diagnóstico IA**: [http://localhost:3000/diagnostico](http://localhost:3000/diagnostico)
-- **Painel Administrativo**: [http://localhost:3000/admin](http://localhost:3000/admin)
+* **Site Público**: [http://localhost:3000](http://localhost:3000)
+* **Blog**: [http://localhost:3000/blog](http://localhost:3000/blog)
+* **Diagnóstico com IA**: [http://localhost:3000/diagnostico](http://localhost:3000/diagnostico)
+* **Painel Administrativo**: [http://localhost:3000/admin](http://localhost:3000/admin)
 
 ### 🔑 Credenciais do Administrador
-- **E-mail**: `admin@williambdesigner.com.br`
-- **Senha**: `admin123456`
+* **E-mail**: `admin@williambdesigner.com.br`
+* **Senha**: `admin123456`
 
 ---
 
-## 📚 Documentação Completa
+## 📚 Documentações do Projeto
 
-Consulte o arquivo [`DOCUMENTACAO_SISTEMA_E_SUPABASE.md`](./DOCUMENTACAO_SISTEMA_E_SUPABASE.md) para ver:
-1. Arquitetura completa da solução.
-2. Todas as rotas administrativas e públicas.
-3. Como adicionar chaves de API (Groq, OpenRouter, OpenAI, Gemini, Anthropic ou customizadas).
-4. Como utilizar o roteador inteligente com fallback automático.
-5. Passo a passo detalhado para configurar o projeto no **Supabase**.
+Consulte os guias especializados inclusos no repositório:
+1. **[Guia Oficial de Deploy e Atualizações](./GUIA_DEPLOY_E_ATUALIZACOES.md)**: Passo a passo para fazer alterações, compilar e atualizar o site no cPanel da Napoleon Host e GitHub.
+2. **[Documentação Geral da Plataforma e Supabase](./DOCUMENTACAO_SISTEMA_E_SUPABASE.md)**: Arquitetura detalhada, mapa de rotas, configuração multi-provedor de IA e schema do banco de dados.
+3. **[Skill Antigravity](./.agents/skills/cpanel-deploy-workflow/SKILL.md)**: Instruções automatizadas para assistentes de IA realizarem o fluxo de build e deploy.
