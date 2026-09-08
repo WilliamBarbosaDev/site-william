@@ -24,10 +24,10 @@ jobs:
 
       - name: 🏗️ Gerar Build do Next.js
         env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://djythhunlppvuxkedgry.supabase.co' }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqeXRoaHVubHBwdnV4a2VkZ3J5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3NDg1MTcsImV4cCI6MjEwNDMyNDUxN30.Kgj7hBnYyQCc1TxrkUMT3CEpmW8ear0LAvPNazzujMo' }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqeXRoaHVubHBwdnV4a2VkZ3J5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4ODc0ODUxNywiZXhwIjoyMTA0MzI0NTE3fQ.790dFSMC9MRd5zsGLUiRXhSWXcsxghXTqpl-jjW_X0k' }}
+          ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET || 'william-barbosa-admin-super-secret-key-2026-secure' }}
         run: npm run build
 
       - name: 🚀 Sincronizar com cPanel via FTP
@@ -36,11 +36,12 @@ jobs:
           server: ${{ secrets.CPANEL_FTP_HOST }}
           username: ${{ secrets.CPANEL_FTP_USER }}
           password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-          server-dir: ${{ secrets.CPANEL_TARGET_FOLDER || 'public_html/' }}
+          server-dir: ${{ secrets.CPANEL_TARGET_FOLDER || 'site-william/' }}
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
+            data/**
             src/**
             tsconfig*.json
             *.md
