@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/$USER/williambdesigner.com.br/
+    - /bin/cp -R * $DEPLOYPATH
+    - touch $DEPLOYPATH/tmp/restart.txt
