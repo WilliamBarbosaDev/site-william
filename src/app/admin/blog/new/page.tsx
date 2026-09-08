@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -15,7 +15,7 @@ import {
   HelpCircle
 } from "lucide-react";
 
-export default function AdminNewBlogPostPage() {
+function AdminNewBlogPostContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialMode = searchParams.get("mode") === "ai" ? "ai" : "manual";
@@ -420,5 +420,13 @@ export default function AdminNewBlogPostPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function AdminNewBlogPostPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-neutral-400">Carregando editor...</div>}>
+      <AdminNewBlogPostContent />
+    </Suspense>
   );
 }
